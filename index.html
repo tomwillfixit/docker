@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js – The HTML Presentation Framework</title>
+		<title>A Brief History of Docker at Demonware</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="">
+		<meta name="author" content="tomwillfixit">
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -40,341 +40,418 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
+				<section data-transition="convex">
+ 					<font size="32"><strong>A Brief History of Docker at </strong></font> 
+					<img width="450" height="175" data-src="img/dw2.png" alt="Demonware" style="background:none; border:none; box-shadow:none;">
 					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+						<small>Created by <a href="http://demonware.net">Thomas Shaw (Build Engineer at Demonware)</a> / <a href="http://twitter.com/tomwillfixit">@tomwillfixit</a></small>
 					</p>
+					
+				</section>
+				<section>
+				<p>&ldquo;Those who don't know history are destined to repeat it.&rdquo;</p> <strong>Edmund Burke</strong>
 				</section>
 
-				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
-				</section>
 
-				<!-- Example of nested vertical slides -->
+				<section data-transition="convex">
+                                        <p>&ldquo;We started looking at Docker today.&nbsp;&nbsp;It is very nice :)  Perfect for regression testing.&nbsp;&nbsp;Thanks for letting us know about it.&rdquo;</p><strong>Build Engineer at Demonware </strong>(September 3rd 2013)
+                                </section>
+
+
+				<section data-transition="zoom">
+                                        <p>&ldquo;The journey of a thousand miles begins with one step. <strong>Lao Tzu</strong></p>
+					<img width="620" height="413" data-src="img/docker.jpg" alt="Docker">
+                                </section>
+
 				<section>
+				        <strong>September 17th 2013</strong>
+					<p> 
+					Prototype installing service in a Container
+
+					<pre><code class="hljs" data-trim contenteditable>
+FROM centos59_golden
+
+MAINTAINER Build Engineering
+
+# make sure the package repository is up to date
+RUN sudo yum update -y 
+
+# install service X
+RUN sudo yum install service_X -y
+
+# expose ports
+EXPOSE 8080
+
+# Start service when launching the container
+ENTRYPOINT ["cd /opt/service_X;./service_X.py latest"]
+
+					</code></pre>
+
+				</section>
+				<section data-transition="convex">
+				<strong>October 8th 2013</strong> 
+				<p>
+				Prototype running unit tests with Docker<br>
 					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
 						<br>
 						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+							<img width="175" height="175" data-src="https://d30y9cdsu7xlg0.cloudfront.net/png/118616-200.png" alt="Down arrow" style="background:none; border:none; box-shadow:none;">
 						</a>
 					</section>
 					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
 						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
+						<br>
+						<br>
+						<br>
+						<br>
+						<h2>Single container</h2>
+						<p>We ran every unit test inside a CentOS 5.9 container.</p>
+						<br>
+						<a href="#" class="navigate-down">
+						<img width="225" height="200" data-src="img/single_container.jpg" alt="container">
 						</a>
+					</section>
+					<section>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<h2>Multiple containers</h2>
+						<p>We split the unit tests across lots of containers.</p>
+						<img width="225" height="200" data-src="http://flcloudlabs.com/wp-content/uploads/2014/09/OSI-shipping-containers-freight.jpg" alt="containers">
+						
 					</section>
 				</section>
 
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
-
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
 
 				<section>
 					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
+						<strong>October 15th 2013</strong> 
+						<p>
+						
+						<p align="left">We started to move some non critical CI from VMs to containers.</p><br>
+					
+						<p class="fragment" align="left">&nbsp;&nbsp;- Connected Bamboo with Docker API</p>
+						<p class="fragment" align="left">&nbsp;&nbsp;- Docker 0.7 installed on all build agents</p> 
+						<p class="fragment" align="left">&nbsp;&nbsp;- Moved non essential RPM builds from VM to container</p> 
+						<p class="fragment" align="left">&nbsp;&nbsp;- Continued to Dockerize unit tests</p>
 
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
 					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment fade-up">fade-up (also down, left and right!)</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p>Highlight <span class="fragment highlight-red">red</span> <span class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span></p>
-					</section>
-				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
 				</section>
 
 				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-						</p>
+				<strong>October 29th 2013</strong> 
+				<p align="left">
+				Pitfall #1 : Treating the container like a VM
+				<br><br>
+					<ul>
+						<li>"Full Stack" container with 8 services running</li>
+						<li>Image size was atrocious</li>
+						<li>Image build time was long</li>
+						<li>Lesson learned : Container != VM</li>
+					</ul>
+				</section>
+
+				<section>
+				<strong>December 13th 2013</strong>
+				<p>
+				<h1>You've got Mail!</h1>
+				</section>
+
+				<section>
+				<strong>December 13th 2013</strong>
+				<p align="left">
+				We wanted to spread the news about Docker so we emailed a few teams.  Well that was the intention.</p>
+					<section>
+						<br>
 						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+							<img width="175" height="175" data-src="https://d30y9cdsu7xlg0.cloudfront.net/png/118616-200.png" alt="Down arrow" style="background:none; border:none; box-shadow:none;">
 						</a>
 					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
+					<section>
+						<br>
+						<br>
+						<h2>Who did we email?</h2>
+						<p>Everyone involved in Technology at Demonware</p>
 					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
+					<section>
+						<br>
+						<br>
+						<h2>What did the email say?</h2>
+						<p>
+						<ul>
+							<li>We plan to move all builds from Vagrant VMs to Docker</li>
+							<li>Docker is super fast</li>
+							<li>We have better build throughput on build agents</li>
+							<li>Less code to maintain</li>
+							<li>Portable</li>
+						</ul>
+						</p>
 					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
+					<section>
+						<br>
+						<br>
+						<h2>What now?</h2>
+						<br>
+						Let's prove Docker can revolutionize how we build, test and deploy at Demonware.
 					</section>
-					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-						<h2>... and GIFs!</h2>
-					</section>
-				</section>
-
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
-
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
 				</section>
 
 				<section>
-					<h2>Pretty Code</h2>
-					<pre><code class="hljs" data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
+				<strong>March 5th 2014</strong> 
+				<p align="left">
+				We continued to spread the news about Docker
 
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Marvelous List</h2>
 					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
+						<li>Lightening Talk at Demonware Summit</li>
+						<li>Docker Registry setup</li>
+						<li>More tests being added to containers; smoke tests</li>
+						<li>More Docker build agents added</li>
+						<li>Mails sent for each Docker release detailing new features</li>
+						<li>Competitions/Swag giveaways</li>
 					</ul>
 				</section>
 
 				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
+
+					<section id="loadtest">
+						<strong>May 5th 2014</strong> 
+						<p>
+						
+						<p align="left">Prototype using Docker to test Load Test tooling</p><br>
+					
+						<p class="fragment" align="left">&nbsp;&nbsp;- Containerize Load Test tools</p>
+						<p class="fragment" align="left">&nbsp;&nbsp;- Containerize Load Test infrastructure</p>
+						<p class="fragment" align="left">&nbsp;&nbsp;- Spin up/Tear down small clusters</p> 
+						<p class="fragment" align="left">&nbsp;&nbsp;- Nightly testing of tools</p> 
+
+					</section>
+
 				</section>
 
 				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							</tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							</tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							</tr>
-						</tbody>
-					</table>
+				<h2>Fast Forward</h2>
+				<p>
+				Scroll down for some key dates in our history
+				
+
+					<section>
+						<br>
+						<br>
+						<a href="#" class="navigate-down">
+						<img width="175" height="175" data-src="https://d30y9cdsu7xlg0.cloudfront.net/png/118616-200.png" alt="Down arrow" style="background:none; border:none; box-shadow:none;">	
+						</a>
+					</section>
+					<section>
+						<br>
+						<br>
+						<h2>July 9th 2014</h2>
+						<p>First Docker Dublin Meetup sponsored by Gilt.</p>
+					</section>
+					<section>
+						<br>
+						<br>
+						<h2>July 29th 2014</h2>
+						<p>Using Docker to run System Tests. Each test component in a separate container.</p>
+					</section>
+					<section>
+						<br>
+						<br>
+						<h2>August 28th 2014</h2>
+						<p>We started using Fig. Fig was later acquired by Docker.inc and is now docker-compose.</p>
+					</section>
+					<section>
+						<br>
+						<br>
+						<h2>August 29th 2014</h2>
+						<p>Fully containerized CI pipeline created.</p>
+					</section>
+					<section>
+						<br>
+						<br>
+						<h2>September 18th 2014</h2>
+						<p>Second Docker Dublin Meetup hosted and sponsored by Demonware.</p>
+					</section>
+					<section>
+						<br>
+						<br>
+						<h2>November 5th 2014</h2>
+						<p>Demos of Docker 1.3.0 and Fig 1.0 given.</p>
+					</section>
+					<section>
+						<br>
+						<br>
+						<h2>November 26th 2014</h2>
+						<p>Docker presentation at Citigroup (Dublin)</p>
+					</section>
+					<section>
+						<br>
+						<br>
+						<h2>December 11th 2014</h2>
+						<p>Preparing Docker Bootcamp material to be hosted at Gilt in Jan 2015.</p>
+					</section>
+				</section>
+				<section>
+				<img width="620" height="400" data-src="http://www.creativebeautyhealth.com/wp-content/uploads/bootcamp-logo.jpg" alt="bootcamp" style="background:none; border:none; box-shadow:none;" >
+				</section>
+				<section>
+				
+				<p align="left">We hosted a number of Docker Bootcamps within Demonware and externally.</p>
+				<ul>
+				<li>Introduce Docker to engineers</li>
+				<li>Cover the basics such as building an image and running a container</li>
+				<li>Give something back to the Docker community</li>
+				</ul>
+				
+				</section>
+				<section>
+				<ul>
+				<li>Gilt in Dublin. 28th/29th January 2015.  <a href="http://tech.gilt.com/2015/01/29/docker-classes-in-dublin-by-demonware">Details here.</a></li><br>
+				<li>Workday in Dublin. 11th September 2015</li><br>
+				<li>Interested in hosting a Bootcamp? <a href="http://twitter.com/tomwillfixit">Get in touch</a></li>
+				</ul>
+				
 				</section>
 
 				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
+				<img width="620" height="400" data-src="https://upload.wikimedia.org/wikipedia/commons/7/73/Meetup_Logo_2015.png" alt="meetup" style="background:none; border:none; box-shadow:none;" >
 				</section>
 
 				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
+				<p align="left">Demonware have also been actively involved in organizing Docker Meetups. <br><br> Scroll down for a list of Meetups</p>
 				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
+						<a href="#" class="navigate-down">
+						<img width="175" height="175" data-src="https://d30y9cdsu7xlg0.cloudfront.net/png/118616-200.png" alt="Down arrow" style="background:none; border:none; box-shadow:none;">	
+						</a>
+					</section>
+					<section>
+						<br>
+						<br>
+						<h2>July 9th 2014</h2>
+						<p>Inaugural Docker Dublin Meetup with Gilt</p>
+					</section>
+					<section>
+						<br>
+						<br>
+						<h2>September 18th 2014</h2>
+						<p>Demonware Ltd. and Docker: Past, Present and Future</p>
+					</section>
+					<section>
+						<br>
+						<br>
+						<h2>October 5th 2015</h2>
+						<p>With special guests Tom Barlow (Docker) and Casey Bisson (Joyent)</p>
+					</section>
+					<section>
+						<br>
+						<br>
+						<h2>November 3rd 2015</h2>
+						<p>With special guest Diogo Mónica, Security Lead @Docker</p>
+					</section>
+					<section>
+						<br>
+						<br>
+						<h2>February 24th 2016</h2>
+						<p>Building a Production ready PaaS at Yelp</p>
+					</section>
+					<section>
+						<br>
+						<br>
+						<h2>March 23rd 2016</h2>
+						<p>Docker Birthday #3 Celebration + Training</p>
+					</section>
+					<section>
+						<br>
+						<br>
+						<h2>May 10th 2016</h2>
+						<p>With special guest Jérôme Petazzoni, Tinkerer Extraordinaire @Docker</p>
+					</section>
+					<section>
+						<br>
+						<br>
+						<h2>July 21st 2016</h2>
+						<p>DockerCon 16 Recap Meetup</p>
+					</section>
+					<section>
+						<br>
+						<br>
+						<h2>Join us : </h2>
+						<p><a href="https://www.meetup.com/Docker-Dublin">https://www.meetup.com/Docker-Dublin</p></a>
+					</section>
 
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
 				</section>
-
 				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe data-src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+				<strong>June 2015</strong> 
+				<p align="left">
+				Pitfall #2 :
+				<br><br>
+				<p>&ldquo;The greater the power, the more dangerous the abuse. &rdquo; <strong>Edmund Burke</strong></p>
+				<br>
+				<br>
+				<ul>
+					<li>Use version numbers in image tags</li>
+					<li>Use image labels</li>
+					<li>Don't use Docker in Docker</li>
+					<li>If docker image > 5 gig, review what is really needed</li>
+					<li>Lesson learned : Put some guidelines in place</li>
+				</ul>
 				</section>
-
 				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
+				<h1>Docker Ecosystem</h1>
+
+				<p align="left">We are well versed in the basics of Docker by July 2015.  Time to start using more tools from the ecosystem.<br>
+				<ul>
+				<li>Docker Machine</li>
+				<li>Docker compose</li>
+				<li>Docker Swarm</li>
+				<li>Rancher</li>
+				</ul>
+				</p>
 				</section>
 
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
+				<section data-transition="convex">
+				<strong>September 3rd 2015</strong> 
+				<p align="left">Prototype running infrastructure services in containers.<br><br>We used docker-compose to deploy and manage the following : </p> 
+				<br>
+				<ul>
+				<li>Bamboo</li>
+				<li>Jenkins</li>
+				<li>PyPi</li>
+				<li>Docker Registry</li>
+				</ul>
+				
 				</section>
-
+				
 				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
+				<strong>November 2015</strong> 
+				<p align="left">
+				Pitfall #3 :
+				<br><br>
+				<p align="left">&ldquo;Have a mind that's open to everything, get attached to nothing. &rdquo; <strong>Gary Busey</strong></p>
+				<br>
+				<br>
+				<ul>
+					<li>Don't get attached to a particular OS flavour</li>
+					<li>Constantly review and refine base images</li>
+					<li>Treat the host and base OS like cattle</li>
+					<li>Lesson learned : Be prepared to pivot</li>
+					
+				</ul>
 				</section>
-
 				<section>
-					<h2>Much more</h2>
-					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
-					</ul>
-				</section>
+				<h1>The end is nigh</h1>
+				<br>
+				<br>
+				<p align="left">Actually the end is now.<br><br>  We are continuing to use Docker heavily at Demonware. <br><br> Hopefully this brief history will prove to be useful and perhaps some of the pitfalls we encountered can be avoided.</p>
 
-				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
-						- <a href="http://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
-				</section>
 
+				</section>
+				<section>
+				<h1>We are hiring</h1>
+				<img width="650" height="250" data-src="img/dw2.png" alt="Demonware" style="background:none; border:none; box-shadow:none;">
+				</section>
+				
 			</div>
 
 		</div>
